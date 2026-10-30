@@ -49,4 +49,15 @@ class WizardTest {
         assertEquals(10, evilWizard.spellPower)
         assertEquals(4, evilWizard.mana)
     }
+    @Test
+    fun restoreMana_amountAddedExceedsOneHundred_manaSetToOneHundred() {
+        evilWizard.restoreMana(80)
+        assertEquals(100, evilWizard.mana)
+    }
+
+    @Test
+    fun restoreMana_amountAddedDoesNotExceedOneHundred_manaIncreasesCorrectly() {
+        evilWizard.restoreMana(40)
+        assertEquals(70, evilWizard.mana)
+    }
 }
